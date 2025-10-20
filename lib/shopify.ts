@@ -4,13 +4,13 @@
  * Classic Customer Accounts を使用したHeadless Commerce実装
  */
 
-const SHOPIFY_STORE_DOMAIN = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN;
+const SHOPIFY_STORE_DOMAIN = process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN;
 const STOREFRONT_TOKEN = process.env.NEXT_PUBLIC_STOREFRONT_TOKEN;
 
 if (!SHOPIFY_STORE_DOMAIN || !STOREFRONT_TOKEN) {
   throw new Error(
     "Missing Shopify Storefront API credentials. " +
-    "Please check NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN and NEXT_PUBLIC_STOREFRONT_TOKEN"
+    "Please check NEXT_PUBLIC_SHOPIFY_DOMAIN and NEXT_PUBLIC_STOREFRONT_TOKEN"
   );
 }
 
