@@ -5,8 +5,16 @@ export default function Footer() {
     {
       title: "ショップ",
       links: [
-        { label: "商品一覧", href: "/products" },
+        { label: "商品一覧", href: "/c/clickkeyholder" },
+        { label: "About", href: "/about" },
         { label: "カート", href: "/cart" },
+      ]
+    },
+    {
+      title: "サポート",
+      links: [
+        { label: "配送について", href: "/guide/shipping" },
+        { label: "返品・交換", href: "/guide/return" },
       ]
     },
     {
@@ -14,6 +22,12 @@ export default function Footer() {
       links: [
         { label: "マイアカウント", href: "/account" },
         { label: "ログイン", href: "/login" },
+      ]
+    },
+    {
+      title: "法的情報",
+      links: [
+        { label: "特定商取引法", href: "/legal/tokushoho" },
       ]
     }
   ];

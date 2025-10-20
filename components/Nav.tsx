@@ -27,7 +27,8 @@ export default function Nav() {
 
   const navItems = [
     { href: "/", label: "ホーム" },
-    { href: "/products", label: "商品" },
+    { href: "/c/clickkeyholder", label: "商品" },
+    { href: "/about", label: "About" },
   ];
 
   return (
