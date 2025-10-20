@@ -15,7 +15,8 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const CART_ID_KEY = "shopify_cart_id";
+const SITE_TAG = process.env.NEXT_PUBLIC_SITE_TAG || 'ergogain';
+const CART_ID_KEY = `shopify_cart_${SITE_TAG}`;
 
 /**
  * localStorageにカートIDを保存

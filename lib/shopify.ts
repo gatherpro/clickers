@@ -252,12 +252,14 @@ export async function getProductByHandle(handle: string): Promise<Product | null
 }
 
 /**
- * 全商品を取得
+ * 全商品を取得（サイトタグでフィルタリング）
  */
 export async function getProducts(first: number = 20): Promise<Product[]> {
+  const SITE_TAG = process.env.NEXT_PUBLIC_SITE_TAG || 'ergogain';
+
   const query = `
-    query getProducts($first: Int!) {
-      products(first: $first) {
+    query getProducts($first: Int!, $query: String!) {
+      products(first: $first, query: $query) {
         edges {
           node {
             id
@@ -309,7 +311,10 @@ export async function getProducts(first: number = 20): Promise<Product[]> {
       };
     }>({
       query,
-      variables: { first },
+      variables: {
+        first,
+        query: `tag:${SITE_TAG}`
+      },
     });
 
     return data.products.edges.map((edge) => edge.node);
