@@ -362,6 +362,24 @@ export default function AboutPage() {
           商品一覧へ
         </a>
       </section>
+
+      {/* モバイルレスポンシブCSS */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          section {
+            padding: 48px 16px !important;
+          }
+
+          h1 br, p br {
+            display: inline;
+          }
+
+          .btn {
+            padding: 14px 32px !important;
+            font-size: 15px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

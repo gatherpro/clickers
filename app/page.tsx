@@ -31,7 +31,7 @@ export default function Home() {
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "48px 24px" }}>
         {/* 上部：動画（左）+ Heroスライダー（右） */}
-        <section style={{
+        <section className="hero-section" style={{
           marginBottom: "80px",
           display: "grid",
           gridTemplateColumns: "400px 1fr",
@@ -81,7 +81,7 @@ export default function Home() {
         </section>
 
         {/* SNSアイコン（左側固定） */}
-        <div style={{
+        <div className="sns-icons" style={{
           position: "fixed",
           left: "32px",
           top: "50%",
@@ -289,6 +289,37 @@ export default function Home() {
           )}
         </section>
       </div>
+
+      {/* モバイルレスポンシブCSS */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .hero-section {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+            margin-bottom: 48px !important;
+          }
+
+          .sns-icons {
+            display: none !important;
+          }
+
+          /* ブランド名のフォントサイズ調整 */
+          nav span {
+            font-size: 22px !important;
+          }
+
+          /* ホームページのパディング調整 */
+          body > div > div {
+            padding: 32px 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-section {
+            margin-bottom: 32px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

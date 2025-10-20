@@ -11,6 +11,7 @@ export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showProductMenu, setShowProductMenu] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { itemCount } = useCart();
 
   useEffect(() => {
@@ -24,6 +25,8 @@ export default function Nav() {
   useEffect(() => {
     // ログイン状態をチェック
     setIsLoggedIn(hasToken());
+    // モバイルメニューを閉じる
+    setMobileMenuOpen(false);
   }, [pathname]);
 
   const productCategories = [
@@ -61,8 +64,29 @@ export default function Nav() {
           justifyContent: "space-between",
           alignItems: "center"
         }}>
-          {/* ブランド名（中央） */}
-          <div style={{ flex: 1 }}></div>
+          {/* ハンバーガーメニューボタン（モバイルのみ） */}
+          <div style={{ flex: 1 }}>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              style={{
+                display: "none",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "8px",
+                color: "#111827"
+              }}
+              className="mobile-menu-button"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {mobileMenuOpen ? (
+                  <><path d="M6 18L18 6M6 6l12 12" /></>
+                ) : (
+                  <><path d="M3 12h18M3 6h18M3 18h18" /></>
+                )}
+              </svg>
+            </button>
+          </div>
           <Link
             href="/"
             style={{
@@ -325,6 +349,125 @@ export default function Nav() {
             );
           })}
         </div>
+
+      {/* モバイルメニューオーバーレイ */}
+      {mobileMenuOpen && (
+        <div
+          className="mobile-menu-overlay"
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 999
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* モバイルメニュー */}
+      <div
+        className="mobile-menu"
+        style={{
+          position: "fixed",
+          top: "0",
+          left: mobileMenuOpen ? "0" : "-280px",
+          width: "280px",
+          height: "100vh",
+          backgroundColor: "#FFFFFF",
+          zIndex: 1001,
+          transition: "left 0.3s ease",
+          overflowY: "auto",
+          boxShadow: "2px 0 8px rgba(0, 0, 0, 0.1)"
+        }}
+      >
+        <div style={{ padding: "24px 20px" }}>
+          {/* メニュー項目 */}
+          <Link
+            href="/"
+            style={{
+              display: "block",
+              padding: "14px 0",
+              fontSize: "16px",
+              fontWeight: pathname === "/" ? 600 : 400,
+              color: pathname === "/" ? "#0891B2" : "#111827",
+              textDecoration: "none",
+              borderBottom: "1px solid #E5E7EB"
+            }}
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/c/all"
+            style={{
+              display: "block",
+              padding: "14px 0",
+              fontSize: "16px",
+              fontWeight: pathname.startsWith("/c/") ? 600 : 400,
+              color: pathname.startsWith("/c/") ? "#0891B2" : "#111827",
+              textDecoration: "none",
+              borderBottom: "1px solid #E5E7EB"
+            }}
+          >
+            Product
+          </Link>
+
+          {/* サブメニュー */}
+          {pathname.startsWith("/c/") && (
+            <div style={{ paddingLeft: "16px", backgroundColor: "#F9FAFB" }}>
+              {productCategories.map((cat) => (
+                <Link
+                  key={cat.href}
+                  href={cat.href}
+                  style={{
+                    display: "block",
+                    padding: "10px 0",
+                    fontSize: "14px",
+                    fontWeight: pathname === cat.href ? 600 : 400,
+                    color: pathname === cat.href ? "#0891B2" : "#6B7280",
+                    textDecoration: "none"
+                  }}
+                >
+                  {cat.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              style={{
+                display: "block",
+                padding: "14px 0",
+                fontSize: "16px",
+                fontWeight: pathname === item.href ? 600 : 400,
+                color: pathname === item.href ? "#0891B2" : "#111827",
+                textDecoration: "none",
+                borderBottom: "1px solid #E5E7EB"
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* CSS for mobile responsiveness */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .mobile-menu-button {
+            display: block !important;
+          }
+          nav > div:nth-child(2) {
+            display: none !important;
+          }
+        }
+      `}</style>
     </nav>
   );
 }

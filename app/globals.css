@@ -312,6 +312,48 @@ a:hover::after {
   .grid-3 {
     grid-template-columns: 1fr;
   }
+
+  .container,
+  .container-narrow {
+    padding: 0 16px;
+  }
+
+  .btn {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  /* 製品グリッドのモバイル対応 */
+  [style*="gridTemplateColumns: \"repeat(auto-fill, minmax(300px, 1fr))\""] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .container,
+  .container-narrow {
+    padding: 0 12px;
+  }
 }
 
 /* Reduce Motion - CRITICAL for accessibility */
