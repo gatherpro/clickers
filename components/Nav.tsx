@@ -35,12 +35,10 @@ export default function Nav() {
       position: "sticky",
       top: 0,
       zIndex: 1000,
-      backgroundColor: "rgba(255, 255, 255, 0.7)",
-      backdropFilter: "blur(10px)",
-      WebkitBackdropFilter: "blur(10px)",
-      borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
-      boxShadow: isScrolled ? "0 1px 8px rgba(0, 0, 0, 0.06)" : "none",
-      transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
+      backgroundColor: "#FFFFFF",
+      borderBottom: "1px solid #EEEEEE",
+      boxShadow: isScrolled ? "0 1px 3px rgba(0, 0, 0, 0.05)" : "none",
+      transition: "all 0.3s ease"
     }}>
       <div style={{
         maxWidth: "1200px",
@@ -49,20 +47,16 @@ export default function Nav() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        height: isScrolled ? "60px" : "64px",
-        transition: "height 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
+        height: "64px"
       }}>
         <Link
           href="/"
           style={{
-            fontSize: "20px",
-            fontWeight: 700,
-            background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            fontSize: "22px",
+            fontWeight: 600,
+            color: "#222222",
             textDecoration: "none",
-            letterSpacing: "-0.02em"
+            letterSpacing: "-0.01em"
           }}
         >
           Shop
@@ -82,9 +76,9 @@ export default function Nav() {
                 style={{
                   fontSize: "15px",
                   fontWeight: isActive ? 600 : 400,
-                  color: isActive ? "#FF6B2C" : "#111",
+                  color: isActive ? "#222222" : "#666666",
                   textDecoration: "none",
-                  transition: "color 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
+                  transition: "color 0.2s ease",
                   position: "relative",
                   padding: "8px 0"
                 }}
@@ -96,9 +90,8 @@ export default function Nav() {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: "1px",
-                    background: "currentColor",
-                    opacity: 0.4
+                    height: "2px",
+                    background: "#222222"
                   }} />
                 )}
               </Link>
@@ -112,9 +105,9 @@ export default function Nav() {
               position: "relative",
               fontSize: "15px",
               fontWeight: pathname === "/cart" ? 600 : 400,
-              color: pathname === "/cart" ? "#FF6B2C" : "#111",
+              color: pathname === "/cart" ? "#222222" : "#666666",
               textDecoration: "none",
-              transition: "color 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
+              transition: "color 0.2s ease",
               padding: "8px 0"
             }}
           >
@@ -124,7 +117,7 @@ export default function Nav() {
                 position: "absolute",
                 top: "-4px",
                 right: "-16px",
-                backgroundColor: "#FF6B2C",
+                backgroundColor: "#222222",
                 color: "white",
                 fontSize: "11px",
                 fontWeight: 700,
@@ -144,9 +137,9 @@ export default function Nav() {
             style={{
               fontSize: "15px",
               fontWeight: pathname === "/account" || pathname === "/login" ? 600 : 400,
-              color: pathname === "/account" || pathname === "/login" ? "#FF6B2C" : "#111",
+              color: pathname === "/account" || pathname === "/login" ? "#222222" : "#666666",
               textDecoration: "none",
-              transition: "color 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
+              transition: "color 0.2s ease",
               padding: "8px 0"
             }}
           >

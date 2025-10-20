@@ -88,13 +88,10 @@ export default function Footer() {
             href="/"
             style={{
               fontSize: "16px",
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              fontWeight: 600,
+              color: "#222222",
               textDecoration: "none",
-              letterSpacing: "-0.02em"
+              letterSpacing: "-0.01em"
             }}
           >
             Shop

@@ -1,22 +1,21 @@
-/* Apple-style Design System with Orange Base */
+/* Simple White-based Design System */
 
 :root {
-  /* Orange Color Palette */
-  --primary: #FF6B2C;
-  --primary-light: #FF8C5A;
-  --primary-dark: #E65100;
-  --primary-gradient: linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%);
+  /* Minimal Color Palette */
+  --primary: #333333;
+  --primary-light: #555555;
+  --primary-dark: #111111;
 
   /* Neutral Colors */
   --background: #FFFFFF;
-  --surface: #F5F5F7;
-  --surface-elevated: #FAFAFA;
-  --border: #E5E5E7;
+  --surface: #FAFAFA;
+  --surface-elevated: #FFFFFF;
+  --border: #EEEEEE;
 
-  /* Text Colors - Apple HIG compliant */
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --text-tertiary: #666666;
+  /* Text Colors */
+  --text-primary: #222222;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
   --text-on-primary: #FFFFFF;
 
   /* Shadows */
