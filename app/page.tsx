@@ -8,8 +8,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="section" style={{
         background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
-        padding: "96px 24px",
-        marginBottom: "96px",
+        padding: "120px 24px",
+        marginBottom: "48px",
         borderRadius: "24px",
         textAlign: "center"
       }}>
@@ -22,7 +22,7 @@ export default function Home() {
             letterSpacing: "-0.03em",
             lineHeight: 1.1
           }}>
-            人間工学が生み出す<br />最高の体験
+            素敵な雑貨を<br />あなたの暮らしに
           </h1>
           <p style={{
             fontSize: "clamp(18px, 2.5vw, 21px)",
@@ -30,183 +30,76 @@ export default function Home() {
             marginBottom: "40px",
             lineHeight: 1.5
           }}>
-            あなたの体に完璧にフィットする、<br />オーダーメイドと既製品の革新的なソリューション
+            厳選された雑貨で、毎日をもっと豊かに
           </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/ergogain"
-              className="btn btn-secondary"
-              style={{
-                backgroundColor: "white",
-                color: "#FF6B2C",
-                padding: "16px 32px",
-                fontSize: "17px",
-                fontWeight: 600,
-                borderRadius: "12px",
-                textDecoration: "none",
-                transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
-              }}
-            >
-              オーダーメイドを見る
-            </Link>
-            <Link
-              href="/ergonomics"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                color: "white",
-                padding: "16px 32px",
-                fontSize: "17px",
-                fontWeight: 600,
-                borderRadius: "12px",
-                textDecoration: "none",
-                transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-                border: "2px solid rgba(255, 255, 255, 0.3)",
-                backdropFilter: "blur(10px)"
-              }}
-            >
-              既製品を見る
-            </Link>
-          </div>
+          <Link
+            href="/products"
+            style={{
+              display: "inline-block",
+              backgroundColor: "white",
+              color: "#FF6B2C",
+              padding: "18px 48px",
+              fontSize: "18px",
+              fontWeight: 600,
+              borderRadius: "12px",
+              textDecoration: "none",
+              transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
+            }}
+          >
+            商品を見る
+          </Link>
         </div>
       </section>
 
-      {/* Product Categories */}
-      <section style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 96px" }}>
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <h2 style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            fontWeight: 700,
-            marginBottom: "16px",
-            letterSpacing: "-0.02em",
-            color: "#1D1D1F"
-          }}>
-            製品カテゴリ
-          </h2>
-          <p style={{
-            fontSize: "19px",
-            color: "#6E6E73",
-            maxWidth: "600px",
-            margin: "0 auto"
-          }}>
-            あなたのニーズに合わせた最適なソリューションを提供します
-          </p>
-        </div>
-
+      {/* Features Section */}
+      <section style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "48px 24px",
+        textAlign: "center"
+      }}>
+        <h2 style={{
+          fontSize: "clamp(28px, 4vw, 36px)",
+          fontWeight: 700,
+          color: "#111",
+          marginBottom: "48px"
+        }}>
+          私たちの特徴
+        </h2>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "24px"
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "32px"
         }}>
-          <Link
-            href="/ergogain"
-            style={{
-              padding: "40px",
-              backgroundColor: "white",
-              borderRadius: "16px",
-              textDecoration: "none",
-              border: "1px solid #E5E5E7",
-              transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-              display: "block",
-              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 8px 24px rgba(255, 107, 44, 0.15)";
-              e.currentTarget.style.borderColor = "#FF6B2C";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.06)";
-              e.currentTarget.style.borderColor = "#E5E5E7";
-            }}
-          >
-            <div style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "24px",
-              fontSize: "24px"
+          {[
+            { title: "厳選された商品", desc: "品質にこだわった商品を取り揃えています" },
+            { title: "安心の決済", desc: "Shopifyの安全な決済システムを採用" },
+            { title: "迅速な発送", desc: "ご注文後、すぐに発送手続きを開始します" }
+          ].map((feature, i) => (
+            <div key={i} style={{
+              padding: "32px",
+              borderRadius: "18px",
+              backgroundColor: "#F5F5F7",
+              border: "1px solid #E5E5E7"
             }}>
-              ✨
+              <h3 style={{
+                fontSize: "20px",
+                fontWeight: 600,
+                color: "#111",
+                marginBottom: "12px"
+              }}>
+                {feature.title}
+              </h3>
+              <p style={{
+                fontSize: "15px",
+                color: "#555",
+                lineHeight: 1.6
+              }}>
+                {feature.desc}
+              </p>
             </div>
-            <h3 style={{
-              fontSize: "24px",
-              fontWeight: 600,
-              marginBottom: "12px",
-              color: "#1D1D1F",
-              letterSpacing: "-0.01em"
-            }}>
-              Ergogain（オーダーメイド）
-            </h3>
-            <p style={{
-              fontSize: "16px",
-              color: "#6E6E73",
-              lineHeight: 1.6,
-              margin: 0
-            }}>
-              あなたの体に完璧にフィットする、フルオーダー・セミオーダーから選べるカスタマイズソリューション
-            </p>
-          </Link>
-
-          <Link
-            href="/ergonomics"
-            style={{
-              padding: "40px",
-              backgroundColor: "white",
-              borderRadius: "16px",
-              textDecoration: "none",
-              border: "1px solid #E5E5E7",
-              transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-              display: "block",
-              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 8px 24px rgba(255, 107, 44, 0.15)";
-              e.currentTarget.style.borderColor = "#FF6B2C";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.06)";
-              e.currentTarget.style.borderColor = "#E5E5E7";
-            }}
-          >
-            <div style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, #FF8C5A 0%, #FFB088 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "24px",
-              fontSize: "24px"
-            }}>
-              🎯
-            </div>
-            <h3 style={{
-              fontSize: "24px",
-              fontWeight: 600,
-              marginBottom: "12px",
-              color: "#1D1D1F",
-              letterSpacing: "-0.01em"
-            }}>
-              既製品
-            </h3>
-            <p style={{
-              fontSize: "16px",
-              color: "#6E6E73",
-              lineHeight: 1.6,
-              margin: 0
-            }}>
-              すぐにお使いいただける、厳選された製品ラインナップ。高品質な人間工学設計
-            </p>
-          </Link>
+          ))}
         </div>
       </section>
     </div>

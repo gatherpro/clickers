@@ -26,12 +26,8 @@ export default function Nav() {
   }, [pathname]);
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/ergogain", label: "Ergogain" },
-    { href: "/ergonomics", label: "既製品" },
-    { href: "/about", label: "会社情報" },
-    { href: "/support", label: "サポート" },
-    { href: "/news", label: "お知らせ" },
+    { href: "/", label: "ホーム" },
+    { href: "/products", label: "商品" },
   ];
 
   return (
@@ -69,7 +65,7 @@ export default function Nav() {
             letterSpacing: "-0.02em"
           }}
         >
-          Ergogain
+          Shop
         </Link>
 
         <div style={{

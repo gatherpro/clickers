@@ -3,25 +3,17 @@ import Link from "next/link";
 export default function Footer() {
   const footerLinks = [
     {
-      title: "製品",
+      title: "ショップ",
       links: [
-        { label: "Ergogain", href: "/ergogain" },
-        { label: "既製品", href: "/ergonomics" },
+        { label: "商品一覧", href: "/products" },
+        { label: "カート", href: "/cart" },
       ]
     },
     {
-      title: "会社情報",
+      title: "アカウント",
       links: [
-        { label: "会社概要", href: "/about" },
-        { label: "お知らせ", href: "/news" },
-      ]
-    },
-    {
-      title: "サポート",
-      links: [
-        { label: "FAQ", href: "/support/faq" },
-        { label: "お問い合わせ", href: "/support/contact" },
-        { label: "保証", href: "/support/warranty" },
+        { label: "マイアカウント", href: "/account" },
+        { label: "ログイン", href: "/login" },
       ]
     }
   ];
@@ -89,7 +81,7 @@ export default function Footer() {
             color: "#86868B",
             margin: 0
           }}>
-            © 2025 Ergogain（仮） All rights reserved.
+            © 2025 Shop All rights reserved.
           </p>
 
           <Link
@@ -105,7 +97,7 @@ export default function Footer() {
               letterSpacing: "-0.02em"
             }}
           >
-            Ergogain
+            Shop
           </Link>
         </div>
       </div>
