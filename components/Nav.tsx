@@ -183,7 +183,7 @@ export default function Nav() {
         margin: "0 auto",
         padding: "0 24px",
         display: "flex",
-        gap: "32px",
+        gap: "20px",
         alignItems: "center",
         justifyContent: "center",
         height: "56px"
@@ -192,7 +192,7 @@ export default function Nav() {
           <Link
             href="/"
             style={{
-              fontSize: "17px",
+              fontSize: "16px",
               fontWeight: pathname === "/" ? 700 : 600,
               color: pathname === "/" ? "#111827" : "#374151",
               textDecoration: "none",
@@ -223,7 +223,7 @@ export default function Nav() {
             <Link
               href="/c/all"
               style={{
-                fontSize: "17px",
+                fontSize: "16px",
                 fontWeight: pathname.startsWith("/c/") ? 700 : 600,
                 color: pathname.startsWith("/c/") ? "#111827" : "#374151",
                 textDecoration: "none",
@@ -325,7 +325,7 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 style={{
-                  fontSize: "17px",
+                  fontSize: "16px",
                   fontWeight: isActive ? 700 : 600,
                   color: isActive ? "#111827" : "#374151",
                   textDecoration: "none",
