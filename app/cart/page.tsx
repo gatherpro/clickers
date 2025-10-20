@@ -9,7 +9,7 @@ export default function CartPage() {
   const getCheckoutUrl = () => {
     if (!cart) return "";
 
-    const returnUrl = encodeURIComponent("https://ergogain.co.jp/order-confirmation");
+    const returnUrl = encodeURIComponent("https://clackta.com/thanks");
     const separator = cart.checkoutUrl.includes("?") ? "&" : "?";
     return `${cart.checkoutUrl}${separator}return_to=${returnUrl}`;
   };
@@ -21,8 +21,8 @@ export default function CartPage() {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "calc(100vh - 200px)",
-        fontSize: "17px",
-        color: "#6E6E73"
+        fontSize: "15px",
+        color: "#6B7280"
       }}>
         読み込み中...
       </div>
@@ -34,51 +34,45 @@ export default function CartPage() {
       <div style={{
         maxWidth: "800px",
         margin: "0 auto",
-        padding: "96px 24px",
+        padding: "80px 24px",
         minHeight: "calc(100vh - 200px)",
         textAlign: "center"
       }}>
         <h1 style={{
-          fontSize: "clamp(32px, 5vw, 48px)",
-          fontWeight: 700,
+          fontSize: "clamp(32px, 5vw, 40px)",
+          fontWeight: 600,
           marginBottom: "24px",
           letterSpacing: "-0.02em",
-          color: "#1D1D1F",
+          color: "#111827",
           lineHeight: 1.15
         }}>
           カート
         </h1>
 
         <div style={{
-          backgroundColor: "#F5F5F7",
-          borderRadius: "18px",
+          backgroundColor: "#F9FAFB",
+          borderRadius: "12px",
           padding: "48px 32px",
-          marginTop: "48px"
+          marginTop: "48px",
+          border: "1px solid #E5E7EB"
         }}>
-          <p style={{ fontSize: "19px", color: "#6E6E73", marginBottom: "24px" }}>
+          <p style={{ fontSize: "16px", color: "#6B7280", marginBottom: "32px" }}>
             カートは空です
           </p>
           <a
-            href="/ergonomics"
+            href="/c/all"
+            className="btn btn-primary"
             style={{
               display: "inline-block",
-              padding: "14px 32px",
+              padding: "16px 32px",
               fontSize: "17px",
               fontWeight: 600,
               color: "white",
-              background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
+              backgroundColor: "#0891B2",
               borderRadius: "12px",
               textDecoration: "none",
-              transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-              boxShadow: "0 4px 12px rgba(255, 107, 44, 0.25)"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 6px 20px rgba(255, 107, 44, 0.35)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(255, 107, 44, 0.25)";
+              transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+              boxShadow: "0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -1px rgba(8, 145, 178, 0.2)"
             }}
           >
             商品を見る
@@ -92,23 +86,23 @@ export default function CartPage() {
     <div style={{
       maxWidth: "1000px",
       margin: "0 auto",
-      padding: "96px 24px",
+      padding: "80px 24px",
       minHeight: "calc(100vh - 200px)"
     }}>
       <h1 style={{
-        fontSize: "clamp(32px, 5vw, 48px)",
-        fontWeight: 700,
+        fontSize: "clamp(32px, 5vw, 40px)",
+        fontWeight: 600,
         marginBottom: "16px",
         letterSpacing: "-0.02em",
-        color: "#1D1D1F",
+        color: "#111827",
         lineHeight: 1.15
       }}>
         カート
       </h1>
 
       <p style={{
-        fontSize: "17px",
-        color: "#6E6E73",
+        fontSize: "15px",
+        color: "#6B7280",
         marginBottom: "48px"
       }}>
         {itemCount}点の商品
@@ -131,28 +125,29 @@ export default function CartPage() {
               key={node.id}
               style={{
                 backgroundColor: "white",
-                border: "1px solid #D2D2D7",
-                borderRadius: "18px",
+                border: "1px solid #E5E7EB",
+                borderRadius: "12px",
                 padding: "24px",
                 display: "flex",
                 gap: "24px",
-                alignItems: "center"
+                alignItems: "center",
+                transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
               }}
             >
               {/* 商品情報 */}
               <div style={{ flex: 1 }}>
                 <h3 style={{
-                  fontSize: "19px",
+                  fontSize: "17px",
                   fontWeight: 600,
-                  color: "#1D1D1F",
+                  color: "#111827",
                   marginBottom: "8px"
                 }}>
                   {node.merchandise.product.title}
                 </h3>
                 {node.merchandise.title !== "Default Title" && (
                   <p style={{
-                    fontSize: "15px",
-                    color: "#6E6E73",
+                    fontSize: "14px",
+                    color: "#6B7280",
                     marginBottom: "12px"
                   }}>
                     {node.merchandise.title}
@@ -160,9 +155,9 @@ export default function CartPage() {
                 )}
                 {node.merchandise.priceV2 && (
                   <p style={{
-                    fontSize: "21px",
-                    fontWeight: 700,
-                    color: "#FF6B2C"
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    color: "#111827"
                   }}>
                     ¥{Number(node.merchandise.priceV2.amount).toLocaleString()}
                   </p>
@@ -174,20 +169,21 @@ export default function CartPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "12px",
-                backgroundColor: "#F5F5F7",
-                borderRadius: "12px",
-                padding: "8px 12px"
+                backgroundColor: "#F9FAFB",
+                borderRadius: "8px",
+                padding: "8px 12px",
+                border: "1px solid #E5E7EB"
               }}>
                 <button
                   onClick={() => updateQuantity(node.id, node.quantity - 1)}
                   style={{
                     width: "32px",
                     height: "32px",
-                    borderRadius: "8px",
-                    border: "none",
+                    borderRadius: "6px",
+                    border: "1px solid #E5E7EB",
                     backgroundColor: "white",
-                    color: "#1D1D1F",
-                    fontSize: "20px",
+                    color: "#111827",
+                    fontSize: "18px",
                     cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
@@ -195,21 +191,23 @@ export default function CartPage() {
                     transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#FF6B2C";
+                    e.currentTarget.style.backgroundColor = "#1a1a1a";
+                    e.currentTarget.style.borderColor = "#1a1a1a";
                     e.currentTarget.style.color = "white";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "white";
-                    e.currentTarget.style.color = "#1D1D1F";
+                    e.currentTarget.style.borderColor = "#E5E7EB";
+                    e.currentTarget.style.color = "#111827";
                   }}
                 >
                   −
                 </button>
 
                 <span style={{
-                  fontSize: "17px",
-                  fontWeight: 600,
-                  color: "#1D1D1F",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  color: "#111827",
                   minWidth: "32px",
                   textAlign: "center"
                 }}>
@@ -221,11 +219,11 @@ export default function CartPage() {
                   style={{
                     width: "32px",
                     height: "32px",
-                    borderRadius: "8px",
-                    border: "none",
+                    borderRadius: "6px",
+                    border: "1px solid #E5E7EB",
                     backgroundColor: "white",
-                    color: "#1D1D1F",
-                    fontSize: "20px",
+                    color: "#111827",
+                    fontSize: "18px",
                     cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
@@ -233,12 +231,14 @@ export default function CartPage() {
                     transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#FF6B2C";
+                    e.currentTarget.style.backgroundColor = "#1a1a1a";
+                    e.currentTarget.style.borderColor = "#1a1a1a";
                     e.currentTarget.style.color = "white";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "white";
-                    e.currentTarget.style.color = "#1D1D1F";
+                    e.currentTarget.style.borderColor = "#E5E7EB";
+                    e.currentTarget.style.color = "#111827";
                   }}
                 >
                   ＋
@@ -250,22 +250,22 @@ export default function CartPage() {
                 onClick={() => removeItem(node.id)}
                 style={{
                   padding: "10px 20px",
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  color: "#C62828",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: "#DC2626",
                   backgroundColor: "white",
-                  border: "2px solid #FFCDD2",
-                  borderRadius: "12px",
+                  border: "1px solid #FCA5A5",
+                  borderRadius: "8px",
                   cursor: "pointer",
                   transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#FFEBEE";
-                  e.currentTarget.style.borderColor = "#C62828";
+                  e.currentTarget.style.backgroundColor = "#FEF2F2";
+                  e.currentTarget.style.borderColor = "#DC2626";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "white";
-                  e.currentTarget.style.borderColor = "#FFCDD2";
+                  e.currentTarget.style.borderColor = "#FCA5A5";
                 }}
               >
                 削除
@@ -277,9 +277,10 @@ export default function CartPage() {
 
       {/* 合計とチェックアウト */}
       <div style={{
-        backgroundColor: "#F5F5F7",
-        borderRadius: "18px",
-        padding: "32px"
+        backgroundColor: "#F9FAFB",
+        borderRadius: "12px",
+        padding: "32px",
+        border: "1px solid #E5E7EB"
       }}>
         <div style={{
           display: "flex",
@@ -287,17 +288,17 @@ export default function CartPage() {
           alignItems: "center",
           marginBottom: "24px"
         }}>
-          <span style={{ fontSize: "21px", fontWeight: 600, color: "#1D1D1F" }}>
+          <span style={{ fontSize: "18px", fontWeight: 600, color: "#111827" }}>
             小計
           </span>
-          <span style={{ fontSize: "32px", fontWeight: 700, color: "#FF6B2C" }}>
+          <span style={{ fontSize: "28px", fontWeight: 700, color: "#111827" }}>
             ¥{Number(cart.cost.subtotalAmount.amount).toLocaleString()}
           </span>
         </div>
 
         <p style={{
-          fontSize: "14px",
-          color: "#86868B",
+          fontSize: "13px",
+          color: "#9CA3AF",
           marginBottom: "24px",
           textAlign: "center"
         }}>
@@ -306,37 +307,30 @@ export default function CartPage() {
 
         <a
           href={getCheckoutUrl()}
+          className="btn btn-primary"
           style={{
             display: "block",
             width: "100%",
             padding: "18px",
-            fontSize: "19px",
+            fontSize: "17px",
             fontWeight: 600,
             color: "white",
-            background: "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
+            backgroundColor: "#0891B2",
             border: "none",
             borderRadius: "12px",
             textAlign: "center",
             textDecoration: "none",
             cursor: "pointer",
-            transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
-            boxShadow: "0 4px 12px rgba(255, 107, 44, 0.25)"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 6px 20px rgba(255, 107, 44, 0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 12px rgba(255, 107, 44, 0.25)";
+            transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+            boxShadow: "0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -1px rgba(8, 145, 178, 0.2)"
           }}
         >
           チェックアウトに進む
         </a>
 
         <p style={{
-          fontSize: "13px",
-          color: "#86868B",
+          fontSize: "12px",
+          color: "#9CA3AF",
           textAlign: "center",
           marginTop: "16px",
           lineHeight: 1.5

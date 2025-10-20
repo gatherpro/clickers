@@ -35,7 +35,10 @@
       "Bash(dir \"C:\\Users\\81905\\Documents\\ergogainvercel\" /s /b)",
       "Bash(dir \"C:\\Users\\81905\\Documents\\ergogainvercel\" /s)",
       "Bash(robocopy . ..site2-project /E /XD .git node_modules .next /XF .env.local package-lock.json)",
-      "Bash(powershell -Command \"Get-ChildItem -Path . -Exclude ''.git'',''node_modules'',''.next'',''.env.local'',''package-lock.json'' | Copy-Item -Destination ''..\\site2-project'' -Recurse -Force\")"
+      "Bash(powershell -Command \"Get-ChildItem -Path . -Exclude ''.git'',''node_modules'',''.next'',''.env.local'',''package-lock.json'' | Copy-Item -Destination ''..\\site2-project'' -Recurse -Force\")",
+      "Bash(dir \"C:\\Users\\81905\\Documents\\写真\" /b)",
+      "Read(//c/Users/81905/Documents/写真/**)",
+      "Bash(copy \"C:\\Users\\81905\\Documents\\写真\\Gemini_Generated_Image_lhdrw9lhdrw9lhdr.png\" \"C:\\Users\\81905\\Documents\\site2-project\\public\\logo.png\")"
     ],
     "deny": [],
     "ask": []

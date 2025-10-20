@@ -55,11 +55,13 @@ export default function ProductDetailPage({ params }: { params: { handle: string
         <h1 style={{ fontSize: "24px", marginBottom: "16px" }}>商品が見つかりませんでした</h1>
         <button onClick={() => router.back()} style={{
           padding: "12px 24px",
-          backgroundColor: "#222222",
+          backgroundColor: "#1a1a1a",
           color: "white",
           border: "none",
-          borderRadius: "4px",
-          cursor: "pointer"
+          borderRadius: "8px",
+          cursor: "pointer",
+          transition: "all 0.18s cubic-bezier(0.22, 1, 0.36, 1)",
+          boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
         }}>
           戻る
         </button>
@@ -82,8 +84,9 @@ export default function ProductDetailPage({ params }: { params: { handle: string
               alt={product.images.edges[0].node.altText || product.title}
               style={{
                 width: "100%",
-                borderRadius: "8px",
-                border: "1px solid #EEEEEE"
+                borderRadius: "12px",
+                border: "1px solid #E5E7EB",
+                boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
               }}
             />
           )}
@@ -94,17 +97,19 @@ export default function ProductDetailPage({ params }: { params: { handle: string
           <h1 style={{
             fontSize: "clamp(28px, 4vw, 36px)",
             fontWeight: 600,
-            color: "#222222",
-            marginBottom: "16px"
+            color: "#111827",
+            marginBottom: "16px",
+            letterSpacing: "-0.01em"
           }}>
             {product.title}
           </h1>
 
           <p style={{
             fontSize: "28px",
-            fontWeight: 600,
-            color: "#222222",
-            marginBottom: "32px"
+            fontWeight: 700,
+            color: "#0891B2",
+            marginBottom: "32px",
+            letterSpacing: "-0.01em"
           }}>
             ¥{parseFloat(product.priceRange.minVariantPrice.amount).toLocaleString()}
           </p>
@@ -112,7 +117,7 @@ export default function ProductDetailPage({ params }: { params: { handle: string
           <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             style={{
               fontSize: "15px",
-              color: "#666666",
+              color: "#6B7280",
               lineHeight: 1.7,
               marginBottom: "40px"
             }}
@@ -125,7 +130,7 @@ export default function ProductDetailPage({ params }: { params: { handle: string
                 display: "block",
                 fontSize: "14px",
                 fontWeight: 600,
-                color: "#222222",
+                color: "#111827",
                 marginBottom: "8px"
               }}>
                 オプション
@@ -142,8 +147,8 @@ export default function ProductDetailPage({ params }: { params: { handle: string
                   width: "100%",
                   padding: "12px",
                   fontSize: "15px",
-                  border: "1px solid #EEEEEE",
-                  borderRadius: "4px"
+                  border: "1px solid #E5E7EB",
+                  borderRadius: "8px"
                 }}
               >
                 {product.variants.edges.map((v: any) => (
@@ -185,17 +190,33 @@ export default function ProductDetailPage({ params }: { params: { handle: string
           <button
             onClick={handleAddToCart}
             disabled={!selectedVariant?.availableForSale}
+            className="btn btn-primary"
             style={{
               width: "100%",
-              padding: "16px",
-              fontSize: "16px",
+              padding: "18px",
+              fontSize: "17px",
               fontWeight: 600,
               color: "white",
-              backgroundColor: selectedVariant?.availableForSale ? "#222222" : "#CCCCCC",
+              backgroundColor: selectedVariant?.availableForSale ? "#0891B2" : "#9CA3AF",
               border: "none",
-              borderRadius: "4px",
+              borderRadius: "12px",
               cursor: selectedVariant?.availableForSale ? "pointer" : "not-allowed",
-              transition: "background-color 0.2s ease"
+              transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+              boxShadow: selectedVariant?.availableForSale ? "0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -1px rgba(8, 145, 178, 0.2)" : "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
+            }}
+            onMouseEnter={(e) => {
+              if (selectedVariant?.availableForSale) {
+                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(8, 145, 178, 0.4), 0 10px 10px -5px rgba(8, 145, 178, 0.3)";
+                e.currentTarget.style.backgroundColor = "#06B6D4";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (selectedVariant?.availableForSale) {
+                e.currentTarget.style.transform = "translateY(0) scale(1)";
+                e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -1px rgba(8, 145, 178, 0.2)";
+                e.currentTarget.style.backgroundColor = "#0891B2";
+              }
             }}
           >
             {selectedVariant?.availableForSale ? "カートに追加" : "在庫切れ"}

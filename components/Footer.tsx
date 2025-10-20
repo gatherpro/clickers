@@ -5,7 +5,7 @@ export default function Footer() {
     {
       title: "ショップ",
       links: [
-        { label: "商品一覧", href: "/c/clickkeyholder" },
+        { label: "商品一覧", href: "/c/all" },
         { label: "About", href: "/about" },
         { label: "カート", href: "/cart" },
       ]
@@ -13,6 +13,7 @@ export default function Footer() {
     {
       title: "サポート",
       links: [
+        { label: "お問い合わせ", href: "/contact" },
         { label: "配送について", href: "/guide/shipping" },
         { label: "返品・交換", href: "/guide/return" },
       ]
@@ -34,8 +35,8 @@ export default function Footer() {
 
   return (
     <footer style={{
-      backgroundColor: "#F5F5F7",
-      borderTop: "1px solid #E5E5E7",
+      backgroundColor: "#F9FAFB",
+      borderTop: "1px solid #E5E7EB",
       marginTop: "auto"
     }}>
       <div style={{
@@ -54,7 +55,7 @@ export default function Footer() {
               <h3 style={{
                 fontSize: "14px",
                 fontWeight: 600,
-                color: "#1D1D1F",
+                color: "#111827",
                 marginBottom: "16px",
                 letterSpacing: "-0.01em"
               }}>
@@ -67,9 +68,9 @@ export default function Footer() {
                       href={link.href}
                       style={{
                         fontSize: "14px",
-                        color: "#6E6E73",
+                        color: "#6B7280",
                         textDecoration: "none",
-                        transition: "color 0.3s ease"
+                        transition: "color 0.18s cubic-bezier(0.22, 1, 0.36, 1)"
                       }}
                     >
                       {link.label}
@@ -83,7 +84,7 @@ export default function Footer() {
 
         <div style={{
           paddingTop: "24px",
-          borderTop: "1px solid #E5E5E7",
+          borderTop: "1px solid #E5E7EB",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -92,10 +93,10 @@ export default function Footer() {
         }}>
           <p style={{
             fontSize: "13px",
-            color: "#86868B",
+            color: "#9CA3AF",
             margin: 0
           }}>
-            © 2025 Shop All rights reserved.
+            © 2025 ClackTa All rights reserved.
           </p>
 
           <Link
@@ -103,12 +104,22 @@ export default function Footer() {
             style={{
               fontSize: "16px",
               fontWeight: 600,
-              color: "#222222",
+              color: "#111827",
               textDecoration: "none",
-              letterSpacing: "-0.01em"
+              letterSpacing: "-0.01em",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px"
             }}
           >
-            Shop
+            ClackTa
+            <span style={{
+              fontSize: "12px",
+              fontWeight: 400,
+              color: "#6B7280"
+            }}>
+              （クラクタ）
+            </span>
           </Link>
         </div>
       </div>

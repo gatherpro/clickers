@@ -1,27 +1,34 @@
-/* Simple White-based Design System */
+/* Refined White-based Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Minimal Color Palette */
-  --primary: #333333;
-  --primary-light: #555555;
-  --primary-dark: #111111;
+  /* Refined Color Palette */
+  --primary: #1a1a1a;
+  --primary-light: #4a4a4a;
+  --primary-dark: #000000;
+
+  /* Accent Color - Teal */
+  --accent: #0891B2;
+  --accent-light: #06B6D4;
+  --accent-dark: #0E7490;
+  --accent-subtle: #ECFEFF;
 
   /* Neutral Colors */
   --background: #FFFFFF;
-  --surface: #FAFAFA;
+  --surface: #F9FAFB;
   --surface-elevated: #FFFFFF;
-  --border: #EEEEEE;
+  --border: #E5E7EB;
 
   /* Text Colors */
-  --text-primary: #222222;
-  --text-secondary: #666666;
-  --text-tertiary: #999999;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
   --text-on-primary: #FFFFFF;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  /* Refined Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
   /* Border Radius - 16-20px for cards */
   --radius-card: 18px;
@@ -49,13 +56,14 @@
 }
 
 body {
-  font-family: ui-sans-serif, -apple-system, system-ui, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', ui-sans-serif, -apple-system, system-ui, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: var(--background);
   color: var(--text-primary);
   line-height: 1.6;
-  font-size: clamp(15px, 1.6vw, 18px);
+  font-size: clamp(15px, 1.6vw, 16px);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 /* Typography */
@@ -114,30 +122,38 @@ a:hover::after {
   width: 100%;
 }
 
-/* Buttons - minimal motion */
+/* Buttons - dynamic and impactful */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 500;
+  padding: 16px 32px;
+  font-size: 17px;
+  font-weight: 600;
   border-radius: var(--radius-button);
   border: none;
   cursor: pointer;
-  transition: all 0.18s var(--ease-out);
+  transition: all 0.3s var(--ease-out);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
-  background: var(--primary-gradient);
+  background: var(--accent);
   color: var(--text-on-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.3), 0 2px 4px -1px rgba(8, 145, 178, 0.2);
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+  background: var(--accent-light);
+  box-shadow: 0 20px 25px -5px rgba(8, 145, 178, 0.4), 0 10px 10px -5px rgba(8, 145, 178, 0.3);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.98);
+  background: var(--accent-dark);
 }
 
 .btn-secondary {
@@ -151,19 +167,28 @@ a:hover::after {
   border-color: var(--primary);
 }
 
-/* Cards - minimal hover, 16-20px radius */
+/* Cards - dynamic hover with floating effect */
 .card {
   background: var(--background);
-  border-radius: var(--radius-card);
+  border-radius: 16px;
   padding: var(--space-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border);
-  transition: all 0.18s var(--ease-out);
+  transition: all 0.3s var(--ease-out);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 25px -5px rgba(8, 145, 178, 0.15), 0 10px 10px -5px rgba(8, 145, 178, 0.1) !important;
+  border-color: var(--accent) !important;
+}
+
+.card img {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 .card-title {
@@ -248,11 +273,11 @@ a:hover::after {
 .mt-lg { margin-top: var(--space-lg); }
 .mt-xl { margin-top: var(--space-xl); }
 
-/* Animations - subtle fade + 8px move */
+/* Animations - dynamic fade + slide */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -261,14 +286,15 @@ a:hover::after {
 }
 
 .fade-in {
-  animation: fadeIn 0.4s var(--ease-out);
+  animation: fadeIn 0.6s var(--ease-out);
 }
 
-/* Intersection Observer fade-in */
+/* Intersection Observer fade-in - more dramatic */
 .reveal {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  animation: fadeIn 0.8s var(--ease-out) forwards;
 }
 
 .reveal.active {
