@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git pull:*)",
+      "Bash(git branch:*)",
+      "Bash(tree:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "Bash(tee:*)",
+      "Bash(for file in app/page.tsx app/ergogain/page.tsx app/ergonomics/page.tsx app/news/page.tsx app/support/page.tsx)",
+      "Bash(do)",
+      "Bash(if ! grep -q '\"\"use client\"\"' \"$file\")",
+      "Bash(then)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(find:*)",
+      "Bash(for file in app/ergogain/page.tsx app/ergonomics/page.tsx app/page.tsx)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(npx tsc:*)",
+      "Bash(cat:*)",
+      "Bash(npm run dev)",
+      "Bash(nslookup:*)",
+      "Bash(git restore:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:shopify.dev)",
+      "Bash(npm install:*)",
+      "Bash(dir \"C:\\Users\\81905\\Documents\\ergogainvercel\" /s /b)",
+      "Bash(dir \"C:\\Users\\81905\\Documents\\ergogainvercel\" /s)",
+      "Bash(robocopy . ..site2-project /E /XD .git node_modules .next /XF .env.local package-lock.json)",
+      "Bash(powershell -Command \"Get-ChildItem -Path . -Exclude ''.git'',''node_modules'',''.next'',''.env.local'',''package-lock.json'' | Copy-Item -Destination ''..\\site2-project'' -Recurse -Force\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
