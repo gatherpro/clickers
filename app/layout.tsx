@@ -5,8 +5,8 @@ import ClientProviders from "../components/ClientProviders";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ergogain（仮）公式サイト",
-  description: "人間工学に基づいた製品を提供するErgogainの公式サイト",
+  title: "ClackTa（クラクタ）オンラインショップ",
+  description: "ClackTa（クラクタ）のオンラインショップ。クリック式キーホルダーなど、革新的な製品をお届けします。",
 };
 
 export default function RootLayout({
