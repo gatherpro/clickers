@@ -91,19 +91,19 @@ export default function NewsSlider() {
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "12px 24px",
+        padding: "20px 24px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         gap: "16px",
-        minHeight: "56px"
+        minHeight: "80px"
       }}>
         {/* 上矢印 */}
         <button
           onClick={goToPrev}
           style={{
-            width: "28px",
-            height: "28px",
+            width: "36px",
+            height: "36px",
             borderRadius: "50%",
             border: "1px solid #E5E7EB",
             backgroundColor: "white",
@@ -124,7 +124,7 @@ export default function NewsSlider() {
           }}
           aria-label="前のお知らせ"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 15l-6-6-6 6" />
           </svg>
         </button>
@@ -136,7 +136,7 @@ export default function NewsSlider() {
             textDecoration: "none",
             position: "relative",
             overflow: "hidden",
-            height: "48px",
+            height: "60px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -165,25 +165,25 @@ export default function NewsSlider() {
                 }}
               >
                 <span style={{
-                  fontSize: "13px",
+                  fontSize: "15px",
                   fontWeight: 600,
                   color: "#0891B2",
                   flexShrink: 0,
                   backgroundColor: "#ECFEFF",
-                  padding: "4px 12px",
+                  padding: "6px 14px",
                   borderRadius: "12px"
                 }}>
                   NEWS
                 </span>
                 <span style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   color: "#6B7280",
                   flexShrink: 0
                 }}>
                   {item.date}
                 </span>
                 <span style={{
-                  fontSize: "15px",
+                  fontSize: "18px",
                   fontWeight: 500,
                   color: "#111827",
                   whiteSpace: "nowrap",
@@ -201,8 +201,8 @@ export default function NewsSlider() {
         <button
           onClick={goToNext}
           style={{
-            width: "28px",
-            height: "28px",
+            width: "36px",
+            height: "36px",
             borderRadius: "50%",
             border: "1px solid #E5E7EB",
             backgroundColor: "white",
@@ -223,7 +223,7 @@ export default function NewsSlider() {
           }}
           aria-label="次のお知らせ"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </button>
